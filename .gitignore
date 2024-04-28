@@ -40,3 +40,4 @@ build/
 LICENSE
 
 .idea/*
+.idea/encodings.xml
