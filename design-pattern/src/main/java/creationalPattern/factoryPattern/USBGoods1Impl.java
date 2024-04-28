@@ -8,6 +8,6 @@ package creationalPattern.factoryPattern;
 public class USBGoods1Impl extends USBGoods{
     @Override
     public void sendData() {
-        System.out.println("USB 产品1 发生数据");
+        System.out.println("USB 产品1 发送数据");
     }
 }

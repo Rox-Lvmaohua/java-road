@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class TestFactoryPattern {
     @Test
     public void testFactory() {
-        USBFactory usbFactory = USBGoodsFactoryMap.getInstance(1);
+        USBFactory usbFactory = USBGoodsFactoryMap.getInstance(2);
         USBGoods usbGoods = usbFactory.getInstance();
         usbGoods.sendData();
     }
