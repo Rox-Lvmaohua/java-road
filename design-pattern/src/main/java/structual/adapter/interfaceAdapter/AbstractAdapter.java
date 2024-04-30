@@ -1,6 +1,6 @@
-package behavioralPattern.adapter.interfaceAdapter;
+package structual.adapter.interfaceAdapter;
 
-import behavioralPattern.adapter.Translator;
+import structual.adapter.Translator;
 
 /**
  * @Author : 吕茂华

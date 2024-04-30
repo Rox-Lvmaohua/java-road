@@ -1,7 +1,7 @@
-package behavioralPattern.adapter.objectAdapter;
+package structual.adapter.objectAdapter;
 
-import behavioralPattern.adapter.Target;
-import behavioralPattern.adapter.Translator;
+import structual.adapter.Target;
+import structual.adapter.Translator;
 
 /**
  * @Author : 吕茂华

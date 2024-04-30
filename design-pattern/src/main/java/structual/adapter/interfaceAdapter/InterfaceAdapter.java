@@ -1,4 +1,4 @@
-package behavioralPattern.adapter.interfaceAdapter;
+package structual.adapter.interfaceAdapter;
 
 /**
  * @Author : 吕茂华

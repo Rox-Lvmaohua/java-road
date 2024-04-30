@@ -1,8 +1,8 @@
 package structual.adapter;
 
-import behavioralPattern.adapter.classAdapter.ClassAdapter;
-import behavioralPattern.adapter.interfaceAdapter.InterfaceAdapter;
-import behavioralPattern.adapter.objectAdapter.ObjectAdapter;
+import structual.adapter.classAdapter.ClassAdapter;
+import structual.adapter.interfaceAdapter.InterfaceAdapter;
+import structual.adapter.objectAdapter.ObjectAdapter;
 import org.junit.jupiter.api.Test;
 
 /**
