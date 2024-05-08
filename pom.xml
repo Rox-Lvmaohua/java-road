@@ -11,6 +11,7 @@
     <modules>
         <module>grammers</module>
         <module>design-pattern</module>
+        <module>multi-thread</module>
     </modules>
 
     <dependencies>
