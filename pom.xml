@@ -12,6 +12,7 @@
         <module>grammers</module>
         <module>design-pattern</module>
         <module>multi-thread</module>
+        <module>unit-test</module>
     </modules>
 
     <dependencies>
