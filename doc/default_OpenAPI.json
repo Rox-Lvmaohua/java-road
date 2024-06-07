@@ -1,0 +1,2612 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "redis-web项目接口文档",
+    "version": "1.0",
+    "title": "redis-web-api文档"
+  },
+  "host": "127.0.0.1:9092",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "cli-cmd-controller",
+      "description": "Cli CMD Controller"
+    },
+    {
+      "name": "cli-hash-modify-controller",
+      "description": "Cli Hash Modify Controller"
+    },
+    {
+      "name": "cli-list-modify-controller",
+      "description": "Cli List Modify Controller"
+    },
+    {
+      "name": "cli-pub-modify-controller",
+      "description": "Cli Pub Modify Controller"
+    },
+    {
+      "name": "cli-query-controller",
+      "description": "Cli Query Controller"
+    },
+    {
+      "name": "cli-set-modify-controller",
+      "description": "Cli Set Modify Controller"
+    },
+    {
+      "name": "cli-stream-modify-controller",
+      "description": "Cli Stream Modify Controller"
+    },
+    {
+      "name": "cli-string-modify-controller",
+      "description": "Cli String Modify Controller"
+    },
+    {
+      "name": "cli-z-set-modify-controller",
+      "description": "Cli Z Set Modify Controller"
+    }
+  ],
+  "paths": {
+    "/redis-modify/hash/addDataToExistKey": {
+      "post": {
+        "tags": [
+          "cli-hash-modify-controller"
+        ],
+        "summary": "给已存在的key添加数据",
+        "operationId": "addDataToExistKeyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "给已存在的key添加数据请求体，不需要指定TTL",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HashRequest",
+              "originalRef": "HashRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/hash/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-hash-modify-controller"
+        ],
+        "summary": "添加Hash类型的键值对, 值为Map对象",
+        "operationId": "addKeyValueUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加Hash类型的数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HashRequest",
+              "originalRef": "HashRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/hash/delSpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-hash-modify-controller"
+        ],
+        "summary": "删除已存在的指定键指定字段的数据",
+        "operationId": "delSpecificDataInKeyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除已存在的指定键指定字段的数据请求体",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/HashModifyDataInKey",
+              "originalRef": "HashModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/hash/modifySpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-hash-modify-controller"
+        ],
+        "summary": "修改已存在的指定键的字段和/或值",
+        "operationId": "modifySpecificDataInKeyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "修改已存在的指定键的字段和/或值请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HashModifyDataInKey",
+              "originalRef": "HashModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/list/addDataToExistKey": {
+      "post": {
+        "tags": [
+          "cli-list-modify-controller"
+        ],
+        "summary": "给已存在的key添加数据",
+        "operationId": "addDataToExistKeyUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "List类型的请求, 默认从左侧插入",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRequest",
+              "originalRef": "ListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/list/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-list-modify-controller"
+        ],
+        "summary": "添加List类型的键值对, 值为List",
+        "operationId": "addKeyValueUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加List类型的键值对请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListRequest",
+              "originalRef": "ListRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/list/delSpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-list-modify-controller"
+        ],
+        "summary": "删除已存在的指定键指定位置的数据",
+        "operationId": "delSpecificDataInKeyUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除已存在的指定键的指定位置的值",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListModifyDataInKey",
+              "originalRef": "ListModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/list/modifySpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-list-modify-controller"
+        ],
+        "summary": "修改已存在的指定键的指定位置的值",
+        "operationId": "modifySpecificDataInKeyUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "修改已存在的指定键的指定位置的值",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListModifyDataInKey",
+              "originalRef": "ListModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/pub/delKey": {
+      "post": {
+        "tags": [
+          "cli-pub-modify-controller"
+        ],
+        "summary": "删除所选择的key，可批量删除",
+        "operationId": "delKeyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除key的请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelKeyRequest",
+              "originalRef": "DelKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/pub/renameKey": {
+      "post": {
+        "tags": [
+          "cli-pub-modify-controller"
+        ],
+        "summary": "重命名一个键",
+        "operationId": "renameKeyUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "重命名键名请求实体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RenameKeyRequest",
+              "originalRef": "RenameKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/pub/setTTL": {
+      "post": {
+        "tags": [
+          "cli-pub-modify-controller"
+        ],
+        "summary": "给所选的键设置过期时间，可批量设置",
+        "operationId": "setTTLUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "设置过期时间的实体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetTTLRequest",
+              "originalRef": "SetTTLRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/set/addDataToExistKey": {
+      "post": {
+        "tags": [
+          "cli-set-modify-controller"
+        ],
+        "summary": "给已存在的key添加数据",
+        "operationId": "addDataToExistKeyUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "给已存在的key添加数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetRequest",
+              "originalRef": "SetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/set/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-set-modify-controller"
+        ],
+        "summary": "添加Set类型的数据, 值为Set对象",
+        "operationId": "addKeyValueUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加Set类型数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetRequest",
+              "originalRef": "SetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/set/delSpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-set-modify-controller"
+        ],
+        "summary": "删除已存在的指定键指定的数据",
+        "operationId": "delSpecificDataInKeyUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除已存在的指定键指定的数据请求体",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/SetModifyDataInKey",
+              "originalRef": "SetModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/set/modifySpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-set-modify-controller"
+        ],
+        "summary": "修改已存在的指定键的指定元素",
+        "operationId": "modifySpecificDataInKeyUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "修改已存在的指定键的指定元素请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SetModifyDataInKey",
+              "originalRef": "SetModifyDataInKey"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/stream/addDataToExistKey": {
+      "post": {
+        "tags": [
+          "cli-stream-modify-controller"
+        ],
+        "summary": "给已存在的key添加数据",
+        "operationId": "addDataToExistKeyUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "给已存在的key添加数据",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StreamRequest",
+              "originalRef": "StreamRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/stream/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-stream-modify-controller"
+        ],
+        "summary": "添加Stream类型的数据, 值为Stream对象, 包含ID和值",
+        "operationId": "addKeyValueUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加Stream数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StreamRequest",
+              "originalRef": "StreamRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/stream/delSpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-stream-modify-controller"
+        ],
+        "summary": "删除已存在的键中指定的数据",
+        "operationId": "delSpecificDataInKeyUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除已存在的键中指定的数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StreamModifyDataInKeyRequest",
+              "originalRef": "StreamModifyDataInKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/string/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-string-modify-controller"
+        ],
+        "summary": "添加String类型的键值对",
+        "operationId": "addKeyValueUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加String键值对请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StringRequest",
+              "originalRef": "StringRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/string/modifyValue": {
+      "post": {
+        "tags": [
+          "cli-string-modify-controller"
+        ],
+        "summary": "修改现有String类型key对应的value",
+        "operationId": "modifyValueUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "修改String类型的key对应的value的请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StringRequest",
+              "originalRef": "StringRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/zset/addDataToExistKey": {
+      "post": {
+        "tags": [
+          "cli-z-set-modify-controller"
+        ],
+        "summary": "给已存在的key添加数据",
+        "operationId": "addDataToExistKeyUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "给已存在的key添加数据请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ZSetRequest",
+              "originalRef": "ZSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/zset/addKeyValue": {
+      "post": {
+        "tags": [
+          "cli-z-set-modify-controller"
+        ],
+        "summary": "添加ZSet类型的键值对, 值为有序集合对象",
+        "operationId": "addKeyValueUsingPOST_5",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "添加ZSet类型的键值对请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ZSetRequest",
+              "originalRef": "ZSetRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/zset/delSpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-z-set-modify-controller"
+        ],
+        "summary": "删除已存在的指定键指定元素",
+        "operationId": "delSpecificDataInKeyUsingPOST_4",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "删除指定元素请求体",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ZSetModifyDataInKeyRequest",
+              "originalRef": "ZSetModifyDataInKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis-modify/zset/modifySpecificDataInKey": {
+      "post": {
+        "tags": [
+          "cli-z-set-modify-controller"
+        ],
+        "summary": "修改已存在的指定键的元素、值",
+        "operationId": "modifySpecificDataInKeyUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "修改已存在的指定键的元素、值",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ZSetModifyDataInKeyRequest",
+              "originalRef": "ZSetModifyDataInKeyRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/clientList": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取所有的 redis 连接列表",
+        "operationId": "clientListUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«ClientInfo»»",
+              "originalRef": "R«List«ClientInfo»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/closeClient": {
+      "post": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "关闭Redis连接",
+        "operationId": "closeClientUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "config",
+            "description": "Redis连接请求配置",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RedisConnectConfig",
+              "originalRef": "RedisConnectConfig"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/cmd/run-cmd": {
+      "post": {
+        "tags": [
+          "cli-cmd-controller"
+        ],
+        "summary": "runCmd",
+        "operationId": "runCmdUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cmd",
+            "in": "query",
+            "description": "cmd",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "db",
+            "in": "query",
+            "description": "db",
+            "required": false,
+            "type": "integer",
+            "default": 0,
+            "format": "int32"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«string»»",
+              "originalRef": "R«List«string»»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/createClient": {
+      "post": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "创建Redis连接",
+        "operationId": "createClientUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "cfg",
+            "description": "Redis连接请求配置",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RedisConnectConfig",
+              "originalRef": "RedisConnectConfig"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«string»",
+              "originalRef": "R«string»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/dbList": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取 redis 数据库列表",
+        "operationId": "dbListUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«DbInfo»»",
+              "originalRef": "R«List«DbInfo»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/info": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取 redis 的基本信息",
+        "operationId": "redisInfoUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "类型",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«Map«string,Map«string,string»»»",
+              "originalRef": "R«Map«string,Map«string,string»»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/keyList": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取所有的键列表",
+        "operationId": "keyListUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "查询键数量",
+            "required": false,
+            "type": "ref"
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "description": "查询的起始游标",
+            "required": false,
+            "type": "ref"
+          },
+          {
+            "name": "db",
+            "in": "query",
+            "description": "选择操作的DB编号",
+            "required": false,
+            "type": "ref"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "match",
+            "in": "query",
+            "description": "match",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«KeyScanResult»",
+              "originalRef": "R«KeyScanResult»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/listClient": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取所有连接的客户端",
+        "operationId": "listClientUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«RedisConnectConfig»»",
+              "originalRef": "R«List«RedisConnectConfig»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/slowlog": {
+      "get": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取慢日志接口",
+        "operationId": "slogUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "description": "慢日志查询数量",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«List«RedisSlowLog»»",
+              "originalRef": "R«List«RedisSlowLog»»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/redis/value": {
+      "post": {
+        "tags": [
+          "cli-query-controller"
+        ],
+        "summary": "获取某个键的值",
+        "operationId": "listUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "db",
+            "in": "query",
+            "description": "所选数据库编号，默认为0",
+            "required": false,
+            "type": "ref"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Redis连接获取成功返回的id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "查询的具体的键",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/R«RedisKv»",
+              "originalRef": "R«RedisKv»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "ClientInfo": {
+      "type": "object",
+      "properties": {
+        "addr": {
+          "type": "string"
+        },
+        "age": {
+          "type": "string"
+        },
+        "cmd": {
+          "type": "string"
+        },
+        "db": {
+          "type": "string"
+        },
+        "fd": {
+          "type": "string"
+        },
+        "flag": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "idle": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "ClientInfo"
+    },
+    "DbInfo": {
+      "type": "object",
+      "properties": {
+        "avg_ttl": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "db": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expires": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "keys": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "DbInfo"
+    },
+    "DelKeyRequest": {
+      "type": "object",
+      "required": [
+        "id",
+        "keys"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作的数据库编号"
+        },
+        "id": {
+          "type": "string",
+          "description": "用户分配的id"
+        },
+        "keys": {
+          "type": "array",
+          "description": "待删除的键名",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "DelKeyRequest",
+      "description": "删除键的请求类，可批量删除"
+    },
+    "HashModifyDataInKey": {
+      "type": "object",
+      "required": [
+        "key",
+        "oldField"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "newField": {
+          "type": "string",
+          "description": "修改时传入，设置的新的字段名"
+        },
+        "newValue": {
+          "type": "string",
+          "description": "修改时传入，设置字段对应的值"
+        },
+        "oldField": {
+          "type": "string",
+          "description": "待处理的字段名"
+        }
+      },
+      "title": "HashModifyDataInKey",
+      "description": "修改、删除已存在的指定键的字段和/或值请求类"
+    },
+    "HashRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "values"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "isOverwrite": {
+          "type": "boolean",
+          "example": true,
+          "description": "给指定键添加数据时是否覆盖原有数据, 默认不覆盖，覆盖需要指定为true"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "键的超时时间，只在新建键值对时使用，必须大于0"
+        },
+        "values": {
+          "type": "object",
+          "description": "对指定键中操作的具体元素, 本身也是k:v形式的，其中k,v都要求String类型",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "HashRequest",
+      "description": "hash类型操作的实体类"
+    },
+    "KeyScanResult": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "KeyScanResult"
+    },
+    "ListModifyDataInKey": {
+      "type": "object",
+      "required": [
+        "index",
+        "key"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "index": {
+          "type": "integer",
+          "format": "int32",
+          "description": "待修改值的索引，默认从左侧计数"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "value": {
+          "type": "string",
+          "description": "设置的新值，只在修改值时使用"
+        }
+      },
+      "title": "ListModifyDataInKey",
+      "description": "修改List已存在的指定键的指定位置的值请求体"
+    },
+    "ListRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "value"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "direction": {
+          "type": "boolean",
+          "example": false,
+          "description": "List插入时的方向，默认为左侧插入（插入到头部），若指定右侧（尾部）插入则置为true"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "键过期时间，默认为永久"
+        },
+        "value": {
+          "type": "array",
+          "description": "List类型待操作的值，可同时操作多个，如插入、删除多个",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ListRequest",
+      "description": "添加List数据操作实体类"
+    },
+    "Map«string,Map«string,string»»": {
+      "type": "object",
+      "title": "Map«string,Map«string,string»»",
+      "additionalProperties": {
+        "$ref": "#/definitions/Map",
+        "originalRef": "Map"
+      }
+    },
+    "Map«string,string»": {
+      "type": "object",
+      "title": "Map«string,string»",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "RedisConnectConfig": {
+      "type": "object",
+      "required": [
+        "host",
+        "port"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "所属的DB编号"
+        },
+        "host": {
+          "type": "string",
+          "description": "Redis主机IP"
+        },
+        "id": {
+          "type": "string",
+          "description": "用于连接redis的Token ID"
+        },
+        "maxActive": {
+          "type": "integer",
+          "format": "int32",
+          "description": "连接池最大连接数量"
+        },
+        "maxIdle": {
+          "type": "integer",
+          "format": "int32",
+          "description": "最大空闲数量"
+        },
+        "minIdle": {
+          "type": "integer",
+          "format": "int32",
+          "description": "最小空闲数量"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "password": {
+          "type": "string",
+          "description": "Redis主机对应的密码"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32",
+          "example": 6379,
+          "description": "Redis端口号"
+        },
+        "timeout": {
+          "type": "integer",
+          "format": "int32",
+          "description": "超时时间"
+        }
+      },
+      "title": "RedisConnectConfig",
+      "description": "获取Redis连接配置类"
+    },
+    "RedisKv": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "object"
+        }
+      },
+      "title": "RedisKv"
+    },
+    "RedisSlowLog": {
+      "type": "object",
+      "properties": {
+        "client": {
+          "type": "string"
+        },
+        "command": {
+          "type": "string"
+        },
+        "executionTimeInMs": {
+          "type": "number",
+          "format": "double"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timeStamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "RedisSlowLog"
+    },
+    "RenameKeyRequest": {
+      "type": "object",
+      "required": [
+        "id",
+        "newKey",
+        "oldKey"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作的数据库编号"
+        },
+        "id": {
+          "type": "string",
+          "description": "用户分配的id"
+        },
+        "newKey": {
+          "type": "string",
+          "description": "新的键名"
+        },
+        "oldKey": {
+          "type": "string",
+          "description": "旧的键名"
+        }
+      },
+      "title": "RenameKeyRequest",
+      "description": "重命名键请求类"
+    },
+    "R«KeyScanResult»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/KeyScanResult",
+          "originalRef": "KeyScanResult"
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«KeyScanResult»"
+    },
+    "R«List«ClientInfo»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClientInfo",
+            "originalRef": "ClientInfo"
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List«ClientInfo»»"
+    },
+    "R«List«DbInfo»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DbInfo",
+            "originalRef": "DbInfo"
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List«DbInfo»»"
+    },
+    "R«List«RedisConnectConfig»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedisConnectConfig",
+            "originalRef": "RedisConnectConfig"
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List«RedisConnectConfig»»"
+    },
+    "R«List«RedisSlowLog»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RedisSlowLog",
+            "originalRef": "RedisSlowLog"
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List«RedisSlowLog»»"
+    },
+    "R«List«string»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«List«string»»"
+    },
+    "R«Map«string,Map«string,string»»»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«Map«string,Map«string,string»»»"
+    },
+    "R«RedisKv»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/RedisKv",
+          "originalRef": "RedisKv"
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«RedisKv»"
+    },
+    "R«string»": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "R«string»"
+    },
+    "SetModifyDataInKey": {
+      "type": "object",
+      "required": [
+        "key",
+        "oldValue"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "newValue": {
+          "type": "string",
+          "description": "修改时传入，设置的新值"
+        },
+        "oldValue": {
+          "type": "string",
+          "description": "待处理的值"
+        }
+      },
+      "title": "SetModifyDataInKey",
+      "description": "修改、删除特定set中元素请求类"
+    },
+    "SetRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "members"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "members": {
+          "type": "array",
+          "description": "对指定键中操作的具体元素",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "键的超时时间，只在新建键值对时使用，必须大于0"
+        }
+      },
+      "title": "SetRequest",
+      "description": "操作Set类型数据实体类"
+    },
+    "SetTTLRequest": {
+      "type": "object",
+      "required": [
+        "id",
+        "keys"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "操作的数据库编号"
+        },
+        "id": {
+          "type": "string",
+          "description": "用户分配的id"
+        },
+        "isPersist": {
+          "type": "boolean",
+          "description": "是否设置为永久，默认为true"
+        },
+        "keys": {
+          "type": "array",
+          "description": "设置过期时间的键，可批量设置",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "过期时间，单位为秒，需设置大于0的数值"
+        }
+      },
+      "title": "SetTTLRequest",
+      "description": "设置过期时间的实体类，如果设置ttl需要同时将isPersist设置为false，否则默认将对应的键设置为永久"
+    },
+    "StreamEntryID": {
+      "type": "object",
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "StreamEntryID"
+    },
+    "StreamModifyDataInKeyRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "streamId"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "streamId": {
+          "type": "string",
+          "description": "待删除的元素的标识符ID"
+        }
+      },
+      "title": "StreamModifyDataInKeyRequest",
+      "description": "删除已存在的键中指定的数据请求类"
+    },
+    "StreamRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "values"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "streamEntryID": {
+          "description": "指定stream条目id生成方式",
+          "$ref": "#/definitions/StreamEntryID",
+          "originalRef": "StreamEntryID"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "键的超时时间，只在新建键值对时使用，必须大于0"
+        },
+        "values": {
+          "type": "object",
+          "description": "对指定键中操作的具体元素, 本身也是k:v形式的，其中k,v都要求String类型",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "StreamRequest",
+      "description": "操作Stream类型的实体类"
+    },
+    "StringRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "value"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "String类型键过期时间，默认为永久，不能填小于等于0的数"
+        },
+        "value": {
+          "type": "string",
+          "description": "String类型数据待操作的值"
+        }
+      },
+      "title": "StringRequest",
+      "description": "String类型请求实体"
+    },
+    "ZSetModifyDataInKeyRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "oldValue"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "newValue": {
+          "type": "string",
+          "description": "设置的新元素名"
+        },
+        "oldValue": {
+          "type": "string",
+          "description": "待操作的元素名"
+        },
+        "score": {
+          "type": "number",
+          "format": "double",
+          "description": "设置的新分数，只在修改时使用"
+        }
+      },
+      "title": "ZSetModifyDataInKeyRequest",
+      "description": "修改、删除修改已存在的指定键的元素、值的请求类"
+    },
+    "ZSetRequest": {
+      "type": "object",
+      "required": [
+        "key",
+        "members"
+      ],
+      "properties": {
+        "db": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前的数据库序号, 默认为0"
+        },
+        "id": {
+          "type": "string",
+          "description": "建立连接时用户获得的id"
+        },
+        "isOverwrite": {
+          "type": "boolean",
+          "example": true,
+          "description": "给指定键添加数据时是否覆盖原有数据, 默认不覆盖，覆盖需要指定为true"
+        },
+        "key": {
+          "type": "string",
+          "description": "当前操作的key"
+        },
+        "members": {
+          "type": "object",
+          "description": "对指定键中操作的具体元素, 本身也是k:v形式的，其中k表示元素，v要求类型为Double表示k对应的分数",
+          "additionalProperties": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "ttl": {
+          "type": "integer",
+          "format": "int32",
+          "description": "键的超时时间，只在新建键值对时使用，必须大于0"
+        }
+      },
+      "title": "ZSetRequest",
+      "description": "操作ZSet类型的实体类"
+    }
+  }
+}
