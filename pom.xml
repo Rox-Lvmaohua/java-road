@@ -9,12 +9,13 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>grammers</module>
+        <module>grammars</module>
         <module>design-pattern</module>
         <module>multi-thread</module>
         <module>unit-test</module>
         <module>spring-learn</module>
         <module>office</module>
+        <module>spring</module>
     </modules>
 
     <dependencies>
