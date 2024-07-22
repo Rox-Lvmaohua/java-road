@@ -40,5 +40,6 @@ build/
 
 LICENSE
 
+**/src/test/resources/**/*.docx
 
 .idea
